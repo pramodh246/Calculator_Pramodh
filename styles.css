@@ -1,0 +1,65 @@
+/* applying style for the whole page*/
+
+*,*::before, *::after {
+
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif ;
+    font-weight: normal;
+
+}
+body{
+    padding:0; /* no padding */
+    margin: 0;/* no padding */
+    background: linear-gradient(to right,#00d9ff,#0f4c7e); /* color blend from right to the left of the screen */
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center; /* changed it from items to content and buttons became better */
+    min-height: 100vh; /* taking full hieght of the screen all the time*/
+    grid-template-columns: repeat(4,100px); /* no of coloumns to repeat all the time */
+    grid-template-rows: minmax(120px, auto) repeat(5,100px); /* minmax added to adjust the display area dynamically , and other 6 rows to stay same*/
+
+}
+
+.calculator-grid > button {
+    border-radius:10% ;
+    cursor: pointer; 
+    font-size:2rem;
+    border: 1px solid white;
+    outline: none; /* browsers will add outlines by default , we have to avoid it */
+    background-color: rgba(255, 255, 255, .75); /*.75 is the 75%*/
+    
+}   
+
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, 0.9); /*.90 is the 90%*/
+}   
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output{
+ grid-column: 1 /-1; /* this is to to go back to display area on top from the column*/
+ background-color: rgba(0, 0, 0, 0.75); /*.75 is the 75%*/
+ display: flex; /* bringing the content to the right place */
+ align-items: flex-end; /* align at right corner*/
+ justify-content: space-around;
+ flex-direction: column ;
+ padding: 10px;
+ word-wrap: break-word;
+ word-break: break-all;
+}
+
+.output .previous-operand {
+ color :rgba(255, 255, 255, .75);
+ font-size: 1.5rem;
+}
+.output .current-operand {
+    color :white;
+    font-size: 2.5rem;
+   }
+   
